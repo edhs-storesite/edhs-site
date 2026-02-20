@@ -1,0 +1,179 @@
+<html>
+    <head>
+        <link href="./style/style.css" rel="stylesheet"></link>
+    </head>
+    <body>
+        <svg style="display:none">
+            <symbol id="seta" viewbox="0 0 24 24">
+                <path
+                    d="M15 6 L9 12 L15 18"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    fill="none"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                />
+            </symbol>
+        </svg>
+        <img src="imagens/background.jpg" class="bgimage">
+        <div id="overlay">  
+            <div id="popUp">
+                <h1 id="popUpTitulo">Em Breve...</h1>
+                <span id="popUpTexto">Ainda estamos trabalhando nisso</span>
+                <button id="btnPopUp" onClick="fecharPopUp()">OK</button>
+            </div>
+        </div>
+        <div class="header">
+            <img src="imagens/logo.png" id="minilogo">
+            <a href="Index.html" class="itemheader"> <span class="textoitem">Página Inicial</span></a>
+            <a class="itemheader" onclick="popUp()"><span class="textoitem">Quem Somos</span></a>
+            
+            <div id="dropredes" class="itemheader">
+                <span id="btnredes" class="textoitem">Redes Sociais</span>
+                <div class="conteudoredes">
+                    <a href="https://www.instagram.com/edhs.movelaria?igsh=MWx4anNkMWh3cXF0Yw==" ><img src="imagens/logoig.png" class="opcaodrop" alt="icone Instagram"> </a>
+
+                    <a href="https://w.app/edhs" ><img src="imagens/logowpp.png" class="opcaodrop" alt="icone Whatsapp"> </a>
+                </div>
+            </div> 
+            <div id="droplojas" class="itemheader">
+                <span id="btnlojas" class="textoitem">Lojas On-line</span>
+                <div class="conteudolojas">
+                    <a><img src="imagens/logofbk.png" class="opcaodrop" onClick="popUp()" alt="icone Facebook" style="border-radius: 10px;"></a>
+                    <a><img src="imagens/logoshp.png" class="opcaodrop" onClick="popUp()" alt="icone Shoppee" style="border-radius: 10px;"></a>
+                    <a><img src="imagens/logomgl.png" class="opcaodrop" onClick="popUp()" alt="icone Magalu" style="border-radius: 10px;"></a>
+                </div>
+            </div>
+        </div>
+        <div id="bemvindo">
+            <img src="imagens/logo2.png" id="logo2">    
+            <h1 id="slogan"><strong>EDHS: </strong>Planejado <em id="com">com</em> você!</h1>
+            <h1 id="trabalhos">Confira alguns de nossos trabalhos abaixo <span style="font-family: Arial, Helvetica, sans-serif;">↓</span></h1>
+            <div id="carrossel">
+                <span id="btnVoltar" class="controles">
+                    <svg viewbox="0 0 24 24">
+                        <use href="#seta"></use>
+                    </svg>
+                </span>
+                <div id="track">
+                    <img class="slideImg" src="imagens/img1.jpg" alt="foto 1">
+                    <img class="slideImg" src="imagens/img2.jpg" alt="foto 2">
+                    <img class="slideImg" src="imagens/img3.jpg" alt="foto 3">
+                    <img class="slideImg" src="imagens/img4.jpg" alt="foto 4">
+                    <img class="slideImg" src="imagens/img5.jpeg" alt="foto 5">
+                </div>
+                <span id="btnAvancar" class="controles">
+                    <svg viewbox="0 0 24 24">
+                        <use href="#seta"></use>
+                    </svg>
+                </span>
+                <div id="bolas">
+
+                </div>
+            </div>
+        </div>
+    </body>
+        <script>
+                const overlay = document.querySelector("#overlay");
+                overlay.style.display = "none";
+                const track = document.querySelector("#track");
+                const slideImg = document.querySelectorAll(".slideImg");
+                const containerBola = document.getElementById("bolas");
+                const btnVoltar = document.getElementById("btnVoltar");
+                const btnAvancar = document.getElementById("btnAvancar");
+                const indice = document.getElementById("indice");
+
+                let index = 1;
+                let movendo = false;
+                let intervalo;
+                let bolas = [];
+    
+                function popUp(){
+                    overlay.style.display = "flex";
+                }
+                function fecharPopUp(){
+                    overlay.style.display = "none";
+                }
+                const clone1 = slideImg[0].cloneNode(true);
+                const clone2 = slideImg[slideImg.length-1].cloneNode(true);
+
+                track.appendChild(clone1);
+                track.insertBefore(clone2, slideImg[0]);
+                const slideImg2 = document.querySelectorAll(".slideImg");
+                const totalSlides = slideImg2.length;
+                track.style.transform = `translateX(-${1200 * index}px)`;
+                
+                slideImg.forEach((_, i) => {
+                    const bola = document.createElement("div");
+                    bola.classList.add("bola");
+
+                    bola.addEventListener("click", () =>{
+                        const indexAlvo = i+1;
+                        if(index === indexAlvo || movendo) return;
+                        index = indexAlvo;
+                        trocarSlide();
+                        resetarRolagem();
+                    });
+                    containerBola.appendChild(bola);
+                    bolas.push(bola);
+                })
+                bolas[0].classList.add("ativa");
+                function atualizarBolas(){
+                    bolas.forEach(bola => bola.classList.remove("ativa"));
+                    let indexReal = index - 1;
+                    if(index === 0){
+                        indexReal = slideImg.length - 1;
+                    }
+                    if(index === slideImg.length + 1){
+                        indexReal = 0;
+                    }
+                    bolas[indexReal].classList.add("ativa");
+                }
+                function trocarSlide(){
+                    if(movendo) return;
+                    movendo = true;
+                    track.style.transition = 'transform 0.5s ease';
+                    track.style.transform= `translateX(-${index * 1200}px)`;
+                    atualizarBolas();
+                }
+                function rolagemAuto(){
+                    intervalo = setInterval(() => {
+                        index++;
+
+                        trocarSlide();
+                    }, 3000)
+                }
+                function resetarRolagem(){
+                    clearInterval(intervalo);
+                    rolagemAuto();  
+                }
+                track.addEventListener("transitionend", () =>
+                {
+                    if(slideImg2[index] === clone1){
+                        track.style.transition = "none";
+                        index = 1;
+                        track.style.transform = `translateX(-${1200 * index}px)`;
+                    }
+                    if(slideImg2[index] === clone2){
+                        track.style.transition = "none";
+                        index = totalSlides - 2;
+                        track.style.transform = `translateX(-${1200 * index}px)`;
+                    }
+                    atualizarBolas();
+                    movendo = false;    
+                })
+                btnVoltar.addEventListener("click", () => {
+                    if(movendo) return;
+                    index--;
+                    trocarSlide();
+                    resetarRolagem();
+                })
+                btnAvancar.addEventListener("click", () => {
+                    if(movendo) return;
+                    index++;
+                    trocarSlide();
+                    resetarRolagem();
+                })
+                rolagemAuto();
+        </script>
+</html>
