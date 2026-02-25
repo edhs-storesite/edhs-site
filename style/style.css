@@ -65,10 +65,7 @@ src: url('./fontes/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format(
         display:none;
     }
     body{
-        width: 100%;
-        height: 100%;
-        margin: 0px;
-        padding: 0px;
+        min-height: 100dvh;
         background-color: black;
     }
     .mb_bgimage{
@@ -153,8 +150,10 @@ src: url('./fontes/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format(
     }
     #overlayMenu{
         position: fixed;
-        inset: 0;
-        top: 70px;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: calc(100dvh - 70px);
         background: rgba(0,0,0,0.4);
         opacity: 0;
         pointer-events: none;
@@ -164,6 +163,7 @@ src: url('./fontes/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format(
     #overlayMenu.ativo{
         opacity: 1;
         pointer-events: auto;
+        
     }
     #mb_menu{
         z-index: 300;
@@ -173,6 +173,7 @@ src: url('./fontes/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format(
         width: 25%;
         top: 70px;
         left: 0;
+        bottom: 0;
         height: calc(100dvh - 70px);
         background-color: #847866;
         justify-content: space-around;
@@ -255,12 +256,6 @@ src: url('./fontes/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format(
 @media (min-width: 768px){
     .mb_bgimage, #hamburguer, #overlayMenu, #mb_carrossel{
         display: none;
-    }
-    html, body{
-        height: 100%;
-        width: 100%;
-        margin: 0px;
-        padding: 0px;
     }
     body{
         background-color: black;
