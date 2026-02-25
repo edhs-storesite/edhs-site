@@ -6,7 +6,7 @@
     </head>
     <body>
         <svg style="display:none">
-            <symbol id="seta" viewbox="0 0 24 24">
+            <symbol id="seta" viewBox="0 0 24 24">
                 <path
                     d="M15 6 L9 12 L15 18"
                     stroke="currentColor"
@@ -60,20 +60,20 @@
             <span id="hamburguer" onclick="toggleMenu()">&#9776</span>
             <div id="overlayMenu">
                 <div id="mb_menu">
-                    <a><svg viewbox="0 0 24 24" class="iconeitem"><use href="#home"></use></svg></a>
-                    <a href="quemsomos.html"><svg viebox="0 0 24 24" class="iconeitem"><use href="#info"></use></svg></a>
+                    <a><svg viewBox="0 0 24 24" class="iconeitem"><use href="#home"></use></svg></a>
+                    <a onclick="popUp()"><svg viebox="0 0 24 24" class="iconeitem"><use href="#info"></use></svg></a>
                     <a href="https://www.instagram.com/edhs.movelaria?igsh=MWx4anNkMWh3cXF0Yw==" ><img src="imagens/logoig.png" class="iconeitem" alt="icone Instagram"> </a>
                     <a href="https://w.app/edhs" ><img src="imagens/logowpp.png" class="iconeitem" alt="icone Whatsapp"> </a>
                     <a><img src="imagens/logofbk.png" class="iconeitem" onClick="popUp()" alt="icone Facebook" style="border-radius: 10px;"></a>
                     <a><img src="imagens/logoshp.png" class="iconeitem" onClick="popUp()" alt="icone Shoppee" style="border-radius: 10px;"></a>
                     <a><img src="imagens/logomgl.png" class="iconeitem" onClick="popUp()" alt="icone Magalu" style="border-radius: 10px;"></a>
-                        
                 </div>
             </div>
+
             <div id="menu">
                 <a href="index.html" class="itemheader"><span class="textoitem">Página Inicial</span></a>
-                <a href="quemsomos.html" class="itemheader"><span class="textoitem">Quem Somos</span></a>
-            
+                <a class="itemheader" onclick="popUp()"><span class="textoitem">Quem Somos</span></a>
+    
                 <div id="dropredes" class="itemheader">
                     <span id="btnredes" class="textoitem">Redes Sociais</span>
                     <div class="conteudoredes">
@@ -96,20 +96,23 @@
             <img src="imagens/logo2.png" id="logo2">    
             <h1 id="slogan"><strong>EDHS: </strong>Planejado <em id="com">com</em> você!</h1>
             <h1 id="trabalhos">Confira alguns de nossos trabalhos abaixo <span style="font-family: Arial, Helvetica, sans-serif;">↓</span></h1>
-            <div class="movel"><img class="imagem" src="imagens/img1.jpg" alt="foto 1">
-            <p class="explicativo">Texto explicando diversas características do projeto e do móvel para atrair clientes.</p></div>
-            <div class="movel"><img class="imagem" src="imagens/img2.jpg" alt="foto 2">
-            <p class="explicativo">Texto explicando diversas características do projeto e do móvel para atrair clientes.</p></div>
-            <div class="movel"><img class="imagem" src="imagens/img3.jpg" alt="foto 3">
-            <p class="explicativo">Texto explicando diversas características do projeto e do móvel para atrair clientes.</p></div>
-            <div class="movel"><img class="imagem" src="imagens/img4.jpg" alt="foto 4">
-            <p class="explicativo">Texto explicando diversas características do projeto e do móvel para atrair clientes.</p></div>
-            <div class="movel"><img class="imagem" src="imagens/img5.jpeg" alt="foto 5">
-            <p class="explicativo">Texto explicando diversas características do projeto e do móvel para atrair clientes.</p></div>
+            
+            <div id="mb_carrossel">
+                <div class="movel"><img class="imagem" src="imagens/img1.jpg" alt="foto 1">
+                <p class="explicativo">Texto explicando diversas características do projeto e do móvel para atrair clientes.</p></div>
+                <div class="movel"><img class="imagem" src="imagens/img2.jpg" alt="foto 2">
+                <p class="explicativo">Texto explicando diversas características do projeto e do móvel para atrair clientes.</p></div>
+                <div class="movel"><img class="imagem" src="imagens/img3.jpg" alt="foto 3">
+                <p class="explicativo">Texto explicando diversas características do projeto e do móvel para atrair clientes.</p></div>
+                <div class="movel"><img class="imagem" src="imagens/img4.jpg" alt="foto 4">
+                <p class="explicativo">Texto explicando diversas características do projeto e do móvel para atrair clientes.</p></div>
+                <div class="movel"><img class="imagem" src="imagens/img5.jpeg" alt="foto 5">
+                <p class="explicativo">Texto explicando diversas características do projeto e do móvel para atrair clientes.</p></div>
+            </div>        
 
             <div id="carrossel">
                 <span id="btnVoltar" class="controles">
-                    <svg viewbox="0 0 24 24">
+                    <svg viewBox="0 0 24 24">
                         <use href="#seta"></use>
                     </svg>
                 </span>
@@ -121,7 +124,7 @@
                     <img class="slideImg" src="imagens/img5.jpeg" alt="foto 5">
                 </div>
                 <span id="btnAvancar" class="controles">
-                    <svg viewbox="0 0 24 24">
+                    <svg viewBox="0 0 24 24">
                         <use href="#seta"></use>
                     </svg>
                 </span>
