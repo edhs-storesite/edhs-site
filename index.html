@@ -1,6 +1,8 @@
 <html>
     <head>
         <link href="./style/style.css" rel="stylesheet"></link>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <svg style="display:none">
@@ -14,8 +16,37 @@
                     stroke-linejoin="round"
                 />
             </symbol>
+            <symbol id="home" viewBox="0 0 24 24" fill="currentcolor">           
+                <path d="M12 3L2 12h3v9h6v-6h2v6h6v-9h3L12 3z"/>
+            </symbol>
+            <symbol id="info" viewBox="0 0 24 24">
+                <circle 
+                    cx="12" 
+                    cy="12" 
+                    r="9" 
+                    stroke="currentColor" 
+                    fill="none"
+                    stroke-width="2"
+                />
+                <circle 
+                    cx="12" 
+                    cy="8" 
+                    r="1.2" 
+                    fill="currentColor"
+                />
+                <line 
+                    x1="12" 
+                    y1="11" 
+                    x2="12" 
+                    y2="16" 
+                    stroke="currentColor" 
+                    stroke-width="2" 
+                    stroke-linecap="round"
+                />
+            </symbol>
         </svg>
         <img src="imagens/background.jpg" class="bgimage">
+        <img src="imagens/mb_background.jpeg" class="mb_bgimage">
         <div id="overlay">  
             <div id="popUp">
                 <h1 id="popUpTitulo">Em Breve...</h1>
@@ -23,25 +54,41 @@
                 <button id="btnPopUp" onClick="fecharPopUp()">OK</button>
             </div>
         </div>
+        
         <div class="header">
             <img src="imagens/logo.png" id="minilogo">
-            <a href="index.html" class="itemheader"> <span class="textoitem">Página Inicial</span></a>
-            <a href="quemsomos.html" class="itemheader"><span class="textoitem">Quem Somos</span></a>
-            
-            <div id="dropredes" class="itemheader">
-                <span id="btnredes" class="textoitem">Redes Sociais</span>
-                <div class="conteudoredes">
-                    <a href="https://www.instagram.com/edhs.movelaria?igsh=MWx4anNkMWh3cXF0Yw==" ><img src="imagens/logoig.png" class="opcaodrop" alt="icone Instagram"> </a>
-
-                    <a href="https://w.app/edhs" ><img src="imagens/logowpp.png" class="opcaodrop" alt="icone Whatsapp"> </a>
+            <span id="hamburguer" onclick="toggleMenu()">&#9776</span>
+            <div id="overlayMenu">
+                <div id="mb_menu">
+                    <a><svg viewbox="0 0 24 24" class="iconeitem"><use href="#home"></use></svg></a>
+                    <a href="quemsomos.html"><svg viebox="0 0 24 24" class="iconeitem"><use href="#info"></use></svg></a>
+                    <a href="https://www.instagram.com/edhs.movelaria?igsh=MWx4anNkMWh3cXF0Yw==" ><img src="imagens/logoig.png" class="iconeitem" alt="icone Instagram"> </a>
+                    <a href="https://w.app/edhs" ><img src="imagens/logowpp.png" class="iconeitem" alt="icone Whatsapp"> </a>
+                    <a><img src="imagens/logofbk.png" class="iconeitem" onClick="popUp()" alt="icone Facebook" style="border-radius: 10px;"></a>
+                    <a><img src="imagens/logoshp.png" class="iconeitem" onClick="popUp()" alt="icone Shoppee" style="border-radius: 10px;"></a>
+                    <a><img src="imagens/logomgl.png" class="iconeitem" onClick="popUp()" alt="icone Magalu" style="border-radius: 10px;"></a>
+                        
                 </div>
-            </div> 
-            <div id="droplojas" class="itemheader">
-                <span id="btnlojas" class="textoitem">Lojas On-line</span>
-                <div class="conteudolojas">
-                    <a><img src="imagens/logofbk.png" class="opcaodrop" onClick="popUp()" alt="icone Facebook" style="border-radius: 10px;"></a>
-                    <a><img src="imagens/logoshp.png" class="opcaodrop" onClick="popUp()" alt="icone Shoppee" style="border-radius: 10px;"></a>
-                    <a><img src="imagens/logomgl.png" class="opcaodrop" onClick="popUp()" alt="icone Magalu" style="border-radius: 10px;"></a>
+            </div>
+            <div id="menu">
+                <a href="index.html" class="itemheader"><span class="textoitem">Página Inicial</span></a>
+                <a href="quemsomos.html" class="itemheader"><span class="textoitem">Quem Somos</span></a>
+            
+                <div id="dropredes" class="itemheader">
+                    <span id="btnredes" class="textoitem">Redes Sociais</span>
+                    <div class="conteudoredes">
+                        <a href="https://www.instagram.com/edhs.movelaria?igsh=MWx4anNkMWh3cXF0Yw==" ><img src="imagens/logoig.png" class="opcaodrop" alt="icone Instagram"> </a>
+                        <a href="https://w.app/edhs" ><img src="imagens/logowpp.png" class="opcaodrop" alt="icone Whatsapp"> </a>
+                    </div>
+                </div> 
+
+                <div id="droplojas" class="itemheader">
+                    <span id="btnlojas" class="textoitem">Lojas On-line</span>
+                    <div class="conteudolojas">
+                        <a><img src="imagens/logofbk.png" class="opcaodrop" onClick="popUp()" alt="icone Facebook" style="border-radius: 10px;"></a>
+                        <a><img src="imagens/logoshp.png" class="opcaodrop" onClick="popUp()" alt="icone Shoppee" style="border-radius: 10px;"></a>
+                        <a><img src="imagens/logomgl.png" class="opcaodrop" onClick="popUp()" alt="icone Magalu" style="border-radius: 10px;"></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -49,6 +96,17 @@
             <img src="imagens/logo2.png" id="logo2">    
             <h1 id="slogan"><strong>EDHS: </strong>Planejado <em id="com">com</em> você!</h1>
             <h1 id="trabalhos">Confira alguns de nossos trabalhos abaixo <span style="font-family: Arial, Helvetica, sans-serif;">↓</span></h1>
+            <div class="movel"><img class="imagem" src="imagens/img1.jpg" alt="foto 1">
+            <p class="explicativo">Texto explicando diversas características do projeto e do móvel para atrair clientes.</p></div>
+            <div class="movel"><img class="imagem" src="imagens/img2.jpg" alt="foto 2">
+            <p class="explicativo">Texto explicando diversas características do projeto e do móvel para atrair clientes.</p></div>
+            <div class="movel"><img class="imagem" src="imagens/img3.jpg" alt="foto 3">
+            <p class="explicativo">Texto explicando diversas características do projeto e do móvel para atrair clientes.</p></div>
+            <div class="movel"><img class="imagem" src="imagens/img4.jpg" alt="foto 4">
+            <p class="explicativo">Texto explicando diversas características do projeto e do móvel para atrair clientes.</p></div>
+            <div class="movel"><img class="imagem" src="imagens/img5.jpeg" alt="foto 5">
+            <p class="explicativo">Texto explicando diversas características do projeto e do móvel para atrair clientes.</p></div>
+
             <div id="carrossel">
                 <span id="btnVoltar" class="controles">
                     <svg viewbox="0 0 24 24">
@@ -76,6 +134,9 @@
         <script>
                 const overlay = document.querySelector("#overlay");
                 overlay.style.display = "none";
+                const overlayMenu = document.querySelector("#overlayMenu");                
+                const mbmenu = document.querySelector("#mb_menu");
+                const hamburguer = document.querySelector("#hamburguer");
                 const track = document.querySelector("#track");
                 const slideImg = document.querySelectorAll(".slideImg");
                 const containerBola = document.getElementById("bolas");
@@ -94,6 +155,24 @@
                 function fecharPopUp(){
                     overlay.style.display = "none";
                 }
+                overlay.addEventListener("click", () => {
+                    fecharPopUp();
+                })
+                function toggleMenu(){
+                    mbmenu.classList.toggle("aberto");
+                    overlayMenu.classList.toggle("ativo");
+                    if(mbmenu.classList.contains("aberto")){
+                        hamburguer.style.transform = "rotate(270deg)";
+                    }
+                    else{
+                        hamburguer.style.transform = "rotate(360deg)";
+                    }
+                }
+                overlayMenu.addEventListener("click", () => {
+                    mbmenu.classList.remove("aberto");
+                    overlayMenu.classList.remove("ativo");
+                    hamburguer.style.transform = "rotate(360deg)";
+                });
                 const clone1 = slideImg[0].cloneNode(true);
                 const clone2 = slideImg[slideImg.length-1].cloneNode(true);
 
