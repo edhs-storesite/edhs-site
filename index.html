@@ -154,27 +154,33 @@
     
                 function popUp(){
                     overlay.style.display = "flex";
+                    document.body.classList.add("popUpAberto");
                 }
                 function fecharPopUp(){
                     overlay.style.display = "none";
+                    document.body.classList.remove("popUpAberto");
                 }
                 overlay.addEventListener("click", () => {
                     fecharPopUp();
+                    document.body.classList.remove("popUpAberto");
                 })
                 function toggleMenu(){
                     mbmenu.classList.toggle("aberto");
                     overlayMenu.classList.toggle("ativo");
                     if(mbmenu.classList.contains("aberto")){
                         hamburguer.style.transform = "rotate(270deg)";
+                        document.body.classList.add("menuAberto");
                     }
                     else{
                         hamburguer.style.transform = "rotate(360deg)";
+                        document.body.classList.remove("menuAberto");
                     }
                 }
                 overlayMenu.addEventListener("click", () => {
                     mbmenu.classList.remove("aberto");
                     overlayMenu.classList.remove("ativo");
                     hamburguer.style.transform = "rotate(360deg)";
+                    document.body.classList.remove("menuAberto");
                 });
                 const clone1 = slideImg[0].cloneNode(true);
                 const clone2 = slideImg[slideImg.length-1].cloneNode(true);
