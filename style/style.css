@@ -179,7 +179,7 @@ src: url('./fontes/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format(
         top: 70px;
         left: 0;
         bottom: 0;
-        height: calc(100dvh - 70px);
+        height: 91dvh;
         background-color: #847866;
         justify-content: space-around;
         align-items: center;
@@ -533,3 +533,4 @@ src: url('./fontes/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format(
         transform: scale(1.3);
     }
 }
+
