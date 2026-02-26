@@ -75,7 +75,7 @@ src: url('./fontes/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format(
     .mb_bgimage{
         opacity: 0.7;
         width: 100%;
-        height: 100svh;
+        height: 100%;
         position:fixed;
         inset: 0;
         z-index: -1;
@@ -181,7 +181,6 @@ src: url('./fontes/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format(
         bottom: 0;
         height: 100svh;
         background-color: #847866;
-        justify-content: space-around;
         align-items: center;
         transform: translateX(-100%);
         transition: transform 0.3s ease;
@@ -193,6 +192,7 @@ src: url('./fontes/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format(
         width: 70px;
         height: 70px;
         color: #dacfbe;
+        margin-bottom: 20px;
     }
     .iconeitem:active, #hamburguer:active{
         color: #aea698;
