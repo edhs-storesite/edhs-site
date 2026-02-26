@@ -276,6 +276,7 @@ src: url('./fontes/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format(
         content: "";
         position: fixed;
         inset: 0;
+        top: 70px;
         background: url('../imagens/background.jpg') center/cover no-repeat;
         opacity: 0.7;
         z-index: -1;
