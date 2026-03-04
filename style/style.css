@@ -1,12 +1,24 @@
 @font-face {
 font-family: 'montserrat';
 src: url('./fontes/Montserrat/static/Montserrat-Regular.ttf') format('truetype');
-font-weight: 400;
-font-style: normal;
+}
+@font-face {
+font-family: 'montserrat';
+src: url('./fontes/Montserrat/static/Montserrat-Bold.ttf') format('truetype');
+font-weight: bold;
+}
+@font-face {
+font-family: 'montserrat';
+src: url('./fontes/Montserrat/static/Montserrat-Italic.ttf') format('truetype');
+font-style: italic;
 }
 @font-face {
 font-family: 'playfair';
 src: url('./fontes/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'cinzel';
+    src: url('./fontes/Cinzel/static/Cinzel-Regular.ttf') format('truetype');
 }
 @keyframes dropdown{
     from{
@@ -20,23 +32,35 @@ src: url('./fontes/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format(
         opacity: 1;
     }
 }
-@keyframes slogan{
+@keyframes logo{
     from{
-        transform: translateX(-500px);
+        transform: scale(0);
+        transform-origin: center;
         opacity: 0;
     }
     to{
-        transform: translateX(0);
+        transform: scale(1);
+        opacity: 1;
+        transform-origin: center;
+    }
+}
+@keyframes slogan{
+    from{
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0);
         opacity: 1;
     }
 }
-@keyframes trabalhos{
+@keyframes bemvindo{
     from{
-        transform: translateX(500px);
+        transform: translateY(-50px);
         opacity: 0;
     }
     to{
-        transform: translateX(0);
+        transform: translateY(0);
         opacity: 1;
     }
 }
@@ -60,6 +84,7 @@ src: url('./fontes/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format(
         opacity: 1;
     }
 }
+
 @media (max-width:768px){
     #minilogo, #menu, #carrossel{
         display:none;
@@ -242,7 +267,7 @@ src: url('./fontes/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format(
         font-family: 'playfair', sans-serif;    
         color: #E5D5C2;
         font-size: 20pt;
-        font-weight: 200;
+        font-weight: 100;
         margin-top: 50px;
         animation: mb_trabalhos 1s ease-out;
     }
@@ -268,18 +293,27 @@ src: url('./fontes/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format(
 }
 
 @media (min-width: 768px){
-    #hamburguer, #overlayMenu, #mb_carrossel{
+    #hamburguer, #overlayMenu, #mb_carrossel, #header{
         display: none;
+    }
+    html, body{
+        width: 100%;
+    }
+    html{
+        overflow-x: hidden;
     }
     body{
         background-color: black;
+        padding: 0;
+        margin: 0;
+        height: 200%;
     }
     body::before{
         content: "";
         position: fixed;
         inset: 0;
         background: url('../imagens/background.jpg') center/cover no-repeat;
-        opacity: 0.7;
+        opacity: 0.65;   
         z-index: -1;
     }
     #overlay{
@@ -335,100 +369,8 @@ src: url('./fontes/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format(
     #btnPopUp:hover{
         background-color: #1cb51c;
     }
-    #menu{
-        display: flex;
-        
-    }
-    .header{
-        z-index: 999;
-        width: 100%;
-        height: 70px;
-        background-color: #847866;
-        position:fixed;
-        top: 0;
-        left: 0;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-    }
-    .itemheader{
-        text-decoration: none;
-        color:#dacfbe;
-        margin-right: 6%;
-        margin-left: 6%;
-        margin-top: auto;
-        margin-bottom: auto;
-        width: 280px;
-        height: fit-content;
-    }
-    #minilogo{
-        margin-right: 5%;
-        height: 96%;
-        margin-left: 3px;
-        margin-bottom: 3px; 
-        border-radius: 180px;
-    }
-    .textoitem{
-        position: relative;
-        font-size: 18pt;
-        color: #dacfbe;
-        cursor: pointer;
-    }
-    .textoitem::after{
-        content:"";
-        position:absolute;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        height: 1px;
-        background: #aea698;
-        transform: scaleX(0);
-        transform-origin: center;
-        transition: transform 0.3s ease;
-    }
-    .textoitem:hover::after{
-        transform:scaleX(1);
-    }
-    .iconeitem{
-        width: 30px;
-        height: 50%;
-        vertical-align: bottom;
-    }
-    .iconedrop{
-        width: 30px;
-        height: 30px;
-    }
-    #dropredes, #droplojas{
-        position: relative;
-        margin-top: auto;
-        margin-bottom: auto;
-    }
-    .conteudoredes, .conteudolojas{
-        width: fit-content;
-        height: fit-content;
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 10px;
-        padding: 5px;
-        padding-top: 25px;
-        background-color: rgba(132,120,102,0.7);
-    }
-    .opcaodrop{
-        cursor: pointer;
-        width: 50px;
-        height: 50px;
-    }
-    #dropredes:hover .conteudoredes, #droplojas:hover .conteudolojas{
-        display: flex;
-        animation: dropdown 0.3s ease-in;
-    }
-    #droplojas:hover .conteudolojas{
-        gap: 10px;
-        left: -25px;
-    }
     #bemvindo{
-        height: 190%;
+        height: 183%;
         width: 100%;
     }
     #logo2{
@@ -438,13 +380,15 @@ src: url('./fontes/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format(
         display: block;
         margin-right: auto;
         margin-left: auto;
-        margin-top: 100px;
+        margin-top: 50px;
+        animation: logo 1s ease;
+
     }
     #slogan{
         color: #E5D5C2;
         text-align: center;
         font-size: 50pt;
-        font-family: 'montserrat', sans-serif;
+        font-family: 'cinzel', sans-serif;
         font-weight: 400;
         font-style: oblique;
         animation: slogan 1.2s ease-out;
@@ -454,13 +398,147 @@ src: url('./fontes/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format(
         text-decoration-thickness: 3px;
         text-underline-offset: 10px;
     }
-    #trabalhos{
+    .blocos{
+        margin: 150px 0 50px 0;
+        height: 850px;
+        width: 100%;
+        position: relative;
+        box-shadow: 0 0 40px 40px rgba(90, 110, 80, 0.4);
+        backdrop-filter: blur(3px);
+        background: rgba(90, 110, 80, 0.4);
+        padding: 25px 0 0 0;
+    }
+    .bloco-e, .bloco-d{
+        opacity: 0;
+        transition: all 0.8s ease;
+        display: flex; 
+        width: 40%;
+        height: 200px;
+        background-color: #847866;
+        border: 2px solid #4b3d30;
+        padding: 0;
+        margin: 0;
+        position: relative;
+    }
+    .bloco-e{
+        border-radius: 0px 18px 18px 0px;
+        transform: translateX(-100px);
+    }
+    .bloco-d{
+        border-radius: 18px 0px 0px 18px;
+        margin-left: auto;
+        transform: translateX(100px);
+    }
+    .bloco-d.mostrar, .bloco-e.mostrar{
+        opacity: 1;
+        transform: translateX(0);
+    }
+    .headerinfo-e, .headerinfo-d{
+        width: fit-content;
+        height: fit-content;
+        font-size: 20pt;
+        color: #261f18;
+        font-family: "cinzel";
+        width: fit-content;
+        height: fit-content;
+        display: flex;
+        align-items: center;
+    }
+    .headerinfo-e{
+        margin: 0px 0px 0px 10px;
+    }
+    .headerinfo-d{
+        margin: 0px 10px 0px auto;
+    }
+    .iconetitulo{
+        width: 40px;
+        height: 40px;
+        margin-right: 5px;
+    }
+    .tituloinfo{
+        vertical-align: top;
+    }
+    .textoinfo-e, .textoinfo-d{
+        width: 88%;
+        height: 60%;
+        font-size: 14pt;
+        color: #f5c99e;
+        margin: 0;
+        font-family: 'montserrat';
+    }
+    .textoinfo-e{
+        margin-left: 12px;
+    }
+    .textoinfo-d{
+        margin-left: 13%;
+    }
+    .contato{
+        text-decoration: none;
+        color: #f5c99e;
+    }
+    .contato span:hover{
+        color: #E5D5C2;
+        font-style: italic;
+    }
+    .contato img{
+        width: 50px;
+        height: 50px;
+    }
+    .contato span{
+        vertical-align:70%;
+    }
+    .subtextoinfo-d, .subtextoinfo-e{
+        width: 88%;
+        height: 15%;
+        font-size: 11pt;
+        font-style: italic;
+        color: whitesmoke;
+        opacity: 0.6;
+        font-family: 'montserrat';
+    }
+    .subtextoinfo-d{
+        margin: 0 0 0 13%;
+    }
+    .subtextoinfo-e{
+        margin: 0 0 0 12px;
+    }
+    .destaque{
+        font-style: italic;
+        font-weight: bold;
+    }
+    .bordainfo-e, .bordainfo-d{
+        position: absolute;
+        width: 12%;
+        height: 100%;
+        opacity: 1;
+        background-color: #4b3d30;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .bordainfo-e{
+        left: 88%;
+        border-radius: 0px 15px 15px 0px;
+    }
+    .bordainfo-d{
+        right: 88%;
+        border-radius: 15px 0px 0px 15px;
+    }
+    .iconeinfo{
+        width: 50px;
+        height: 50px;
+        color: black;
+    }
+    #trabalhos, #saudacoes{
         text-align: center;
-        font-family: 'playfair', sans-serif;    
+        font-family: 'cinzel', sans-serif;    
         color: #E5D5C2;
         font-size: 20pt;
+        font-weight: 100;
         margin-top: 50px;
-        animation: trabalhos 1.2s ease-out;
+    }
+    #saudacoes{
+        animation: bemvindo 1s ease-out;
     }
     #carrossel{
         z-index: 1;
@@ -539,5 +617,44 @@ src: url('./fontes/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format(
     .bola.ativa{
         background-color: #847866;
         transform: scale(1.3);
+    }
+    .footer{
+        transform: scale(1.5);
+        transition: all 0.5s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 0 auto;
+        width: 40%;
+        height: 150px;
+    }
+    .footer.diminuir{
+        transform: scale(1);
+    }
+    .footer a{
+        text-decoration: none;
+    }
+    .iconefooter{
+        width: 50px;
+        height: 50px;
+    }
+    .titulofooter{ 
+        font-size: 30pt;
+        margin: 0;
+        color: #f5c99e;
+        font-family: 'montserrat';
+    }
+    .titulofooter:hover{
+        transform: scale(1.1);
+        transition: all 0.2s ease;
+    }
+    .textofooter{
+        color: #E5D5C2;
+        font-family: 'montserrat';
+    }
+    .textofooter:hover{
+        color: #aea698;
+        text-decoration: underline;
     }
 }
