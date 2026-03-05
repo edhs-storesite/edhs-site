@@ -86,7 +86,7 @@ src: url('./fontes/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format(
 }
 
 @media (max-width:768px){
-    #minilogo, #menu, #carrossel{
+    #carrossel{
         display:none;
     }   
     html, body{
@@ -107,61 +107,9 @@ src: url('./fontes/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format(
         opacity: 0.7;
         z-index: -1;
     }
-    body.menuAberto, body.popUpAberto{
+    body.menuAberto{
         overflow: hidden;
         touch-action: none;
-    }
-    #overlay{
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.75);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 2000;
-    }
-    #popUp{
-        width: 190px;
-        height: 140px;
-        border: 2px solid gray;
-        border-radius: 10px;
-        padding: 10px;
-        background-color: whitesmoke;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translateX(-50%) translateY(-50%);
-        display: flex;
-        flex-direction: column;
-    }
-    #popUpTitulo{
-        margin-top: 0px;
-        font-family: 'montserrat', sans-serif;
-        font-weight: bold;
-        color: #847866;
-    }
-    #popUpTexto{
-        color: #847866;
-        font-family: 'montserrat', sans-serif;
-        font-size: 15pt;
-    }
-    #btnPopUp{
-        position: absolute;
-        bottom: 10px;
-        right: 10px;
-        width: 40px;
-        height: 25px;
-        text-decoration: none !important;
-        font-size: 12pt;
-        font-family: 'montserrat', sans-serif;
-        font-weight: bold;
-        color: white;
-        background-color: #4ae34a;
-        border: 1px solid lightgray;
-        border-radius: 10px;
-    }
-    #btnPopUp:active{
-        background-color: #1cb51c;
     }
     .header{
         z-index: 200;
@@ -316,61 +264,8 @@ src: url('./fontes/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format(
         opacity: 0.65;   
         z-index: -1;
     }
-    #overlay{
-        position: fixed;
-        inset: 0;
-        background: rgba(0,0,0,0.75);
-        display: none;
-        justify-content: center;
-        align-items: center;
-        z-index: 1000;
-    }
-    #popUp{
-        width: 290px;
-        height: 190px;
-        border: 2px solid gray;
-        border-radius: 10px;
-        padding: 10px;
-        background-color: whitesmoke;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translateX(-50%) translateY(-50%);
-        display: flex;
-        flex-direction: column;
-    }
-    #popUpTitulo{
-        margin-top: 0px;
-        font-family: 'montserrat', sans-serif;
-        font-weight: bold;
-        color: #847866;
-    }
-    #popUpTexto{
-        color: #847866;
-        font-family: 'montserrat', sans-serif;
-        font-size: 15pt;
-    }
-    #btnPopUp{
-        cursor: pointer;
-        position: absolute;
-        bottom: 10px;
-        right: 10px;
-        width: 60px;
-        height: 35px;
-        text-decoration: none !important;
-        font-size: 15pt;
-        font-family: 'montserrat', sans-serif;
-        font-weight: bold;
-        color: white;
-        background-color: #4ae34a;
-        border: 1px solid lightgray;
-        border-radius: 10px;
-    }
-    #btnPopUp:hover{
-        background-color: #1cb51c;
-    }
     #bemvindo{
-        height: 183%;
+        height: 2400px;
         width: 100%;
     }
     #logo2{
@@ -434,8 +329,6 @@ src: url('./fontes/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format(
         transform: translateX(0);
     }
     .headerinfo-e, .headerinfo-d{
-        width: fit-content;
-        height: fit-content;
         font-size: 20pt;
         color: #261f18;
         font-family: "cinzel";
@@ -459,7 +352,7 @@ src: url('./fontes/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format(
         vertical-align: top;
     }
     .textoinfo-e, .textoinfo-d{
-        width: 88%;
+        width: 85%;
         height: 60%;
         font-size: 14pt;
         color: #f5c99e;
@@ -470,7 +363,7 @@ src: url('./fontes/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format(
         margin-left: 12px;
     }
     .textoinfo-d{
-        margin-left: 13%;
+        margin: 0 0 0 auto;
     }
     .contato{
         text-decoration: none;
@@ -483,6 +376,9 @@ src: url('./fontes/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format(
     .contato img{
         width: 50px;
         height: 50px;
+    }
+    .contato img:hover{
+        transform: scale(0.85);
     }
     .contato span{
         vertical-align:70%;
