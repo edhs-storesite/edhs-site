@@ -78,12 +78,9 @@ src: url('./fontes/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format(
         min-height: 100vh;
         background-color: black;
     }
-    body::before{
-        content: "";
+    #mb_background{
         position: fixed;
-        height: 100svh;
-        inset: 0;
-        top: 70px;
+        inset: 70px 0 0 0;
         background: url('../imagens/mb_background.jpg') center/cover no-repeat;
         opacity: 0.7;
         z-index: -1;
@@ -207,7 +204,7 @@ src: url('./fontes/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format(
         flex-direction: column;
     }
     .bloco-e, .bloco-d{
-        transform: scale(1.15);
+        transform: scale(1);
         opacity: 0;
         transition: all 0.8s ease;
         display: flex; 
@@ -223,7 +220,7 @@ src: url('./fontes/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format(
         margin-bottom: 50px;
     }
     .bloco-e.mostrar, .bloco-d.mostrar{
-        transform: scale(1);
+        transform: scale(0.85);
         opacity: 1;
     }
     .bordainfo-e, .bordainfo-d{
@@ -327,7 +324,7 @@ src: url('./fontes/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format(
         box-shadow: 6px 6px 6px #f5c99e;
     }
     .footer{
-        scale: 1.5;
+        scale: 1;
         transition: all 0.5s ease;
         display: flex;
         flex-direction: column;
@@ -342,7 +339,7 @@ src: url('./fontes/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format(
         -webkit-tap-highlight-color: transparent;
     }
     .footer.diminuir{
-        scale: 1;
+        scale: 0.85;
     }
     .footer a{
         text-decoration: none;
