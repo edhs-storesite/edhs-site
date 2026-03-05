@@ -84,25 +84,13 @@
                 <path d="M30.6 65 L50 90 69.3 65" stroke="currentColor" fill="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
             </symbol>
         </svg>
-        <div id="overlay">  
-            <div id="popUp">
-                <h1 id="popUpTitulo">Em Breve...</h1>
-                <span id="popUpTexto">Ainda estamos trabalhando nisso</span>
-                <button id="btnPopUp" onClick="fecharPopUp()">OK</button>
-            </div>
-        </div>
-
+        
         <div class="header">
             <span id="hamburguer" onclick="toggleMenu()">&#9776</span>
             <div id="overlayMenu">
                 <div id="mb_menu">
-                    <a><svg class="iconeitem"><use href="#home"></use></svg></a>
-                    <a onclick="popUp()"><svg class="iconeitem"><use href="#info"></use></svg></a>
                     <a href="https://www.instagram.com/edhs.movelaria?igsh=MWx4anNkMWh3cXF0Yw==" ><img src="imagens/logoig.png" class="iconeitem" alt="icone Instagram"> </a>
                     <a href="https://wa.me/5512991308488" ><img src="imagens/logowpp.png" class="iconeitem" alt="icone Whatsapp"> </a>
-                    <a><img src="imagens/logofbk.png" class="iconeitem" onClick="popUp()" alt="icone Facebook" style="border-radius: 10px;"></a>
-                    <a><img src="imagens/logoshp.png" class="iconeitem" onClick="popUp()" alt="icone Shoppee" style="border-radius: 10px;"></a>
-                    <a><img src="imagens/logomgl.png" class="iconeitem" onClick="popUp()" alt="icone Magalu" style="border-radius: 10px;"></a>
                 </div>
             </div>
         </div>
@@ -188,20 +176,7 @@
             </div>
 
             <h1 id="trabalhos">Confira alguns de nossos trabalhos abaixo <span style="font-family: Arial, Helvetica, sans-serif;">↓</span></h1>
-            
-            <div id="mb_carrossel">
-                <div class="movel"><img class="imagem" src="imagens/img1.jpg" alt="foto 1">
-                <p class="explicativo">Texto explicando diversas características do projeto e do móvel para atrair clientes.</p></div>
-                <div class="movel"><img class="imagem" src="imagens/img2.jpg" alt="foto 2">
-                <p class="explicativo">Texto explicando diversas características do projeto e do móvel para atrair clientes.</p></div>
-                <div class="movel"><img class="imagem" src="imagens/img3.jpg" alt="foto 3">
-                <p class="explicativo">Texto explicando diversas características do projeto e do móvel para atrair clientes.</p></div>
-                <div class="movel"><img class="imagem" src="imagens/img4.jpg" alt="foto 4">
-                <p class="explicativo">Texto explicando diversas características do projeto e do móvel para atrair clientes.</p></div>
-                <div class="movel"><img class="imagem" src="imagens/img5.jpeg" alt="foto 5">
-                <p class="explicativo">Texto explicando diversas características do projeto e do móvel para atrair clientes.</p></div>
-            </div>        
-
+                    
             <div id="carrossel">
                 <span id="btnVoltar" class="controles"><svg><use href="#seta"></use></svg></span>
                 <div id="track">
@@ -226,8 +201,6 @@
         </div>
     </body>
         <script>
-                const overlay = document.querySelector("#overlay");
-                overlay.style.display = "none";
                 const overlayMenu = document.querySelector("#overlayMenu");                
                 const mbmenu = document.querySelector("#mb_menu");
                 const hamburguer = document.querySelector("#hamburguer");
@@ -245,6 +218,13 @@
                 let intervalo;
                 let bolas = [];
     
+                if('scrollRestoration' in history){
+                    history.scrollRestoration = 'manual';
+                    window.addEventListener("load", () =>{
+                        window.scrollTo(0, 0);
+                    });
+                }
+
                 const observadorbloco = new IntersectionObserver((entries, obs) => {
                     entries.forEach(entry =>{
                         if (entry.isIntersecting){
@@ -265,18 +245,6 @@
                 }, {threshold: 0.7});
                 observadorfooter.observe(footer);
         
-                function popUp(){
-                    overlay.style.display = "flex";
-                    document.body.classList.add("popUpAberto");
-                }
-                function fecharPopUp(){
-                    overlay.style.display = "none";
-                    document.body.classList.remove("popUpAberto");
-                }
-                overlay.addEventListener("click", () => {
-                    fecharPopUp();
-                    document.body.classList.remove("popUpAberto");
-                })
                 function toggleMenu(){
                     mbmenu.classList.toggle("aberto");
                     overlayMenu.classList.toggle("ativo");
