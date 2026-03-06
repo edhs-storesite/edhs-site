@@ -364,7 +364,7 @@ src: url('./fontes/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format(
 }
 
 @media (min-width: 768px){
-    #hamburguer, #overlayMenu, #header, .mb_iconetitulo, .mb_tituloinfo, .mb_br{
+    #hamburguer, #overlayMenu, #header, .mb_iconetitulo, .mb_tituloinfo, .mb_br, .mb_fotos{
         display: none;
     }
     html, body{
@@ -676,5 +676,4 @@ src: url('./fontes/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format(
         color: #aea698;
         text-decoration: underline;
     }
-
 }
