@@ -79,7 +79,8 @@ src: url('./fontes/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format(
     }
     #mb_background{
         position: fixed;
-        inset: 110px 0 0 0;
+        inset: 70px 0 0 0;
+        height: 100%;
         background: url('../imagens/mb_background.jpg') center/cover no-repeat;
         opacity: 0.7;
         z-index: -1;
