@@ -75,7 +75,6 @@ src: url('./fontes/Playfair_Display/static/PlayfairDisplay-Regular.ttf') format(
         padding: 0;
     }
     body{
-        min-height: 100vh;
         background-color: black;
     }
     #mb_background{
